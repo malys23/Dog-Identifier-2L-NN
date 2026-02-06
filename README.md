@@ -1,1 +1,1 @@
-# Dog-Identifier-2L-NN
+# Dog-Identifier-2Layer-NN
