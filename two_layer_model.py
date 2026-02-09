@@ -18,16 +18,16 @@ def two_layer_model(X, Y, layers_dims, learning_rate=0.0075, num_iterations=3000
     m = X.shape[1]
     (n_x, n_h, n_y) = layers_dims
     
-    paramters = initialize_parameters(n_x, n_h, n_y)    
-    W1 = paramters["W1"]
-    b1 = paramters["b1"]
-    W2 = paramters["W2"]
-    b2 = paramters["b2"]
+    parameters = initialize_parameters(n_x, n_h, n_y)    
+    W1 = parameters["W1"]
+    b1 = parameters["b1"]
+    W2 = parameters["W2"]
+    b2 = parameters["b2"]
     
     for i in range(0, num_iterations):
         A1, cache1 = linear_activation_forward(X, W1, b1, activation = "relu")
         A2, cache2 = linear_activation_forward(A1, W2, b2, activation= "sigmoid")
-        
+       
         cost = compute_cost(A2, Y)
         
         dA2 = -(np.divide(Y, A2) - np.divide(1-Y, 1-A2))

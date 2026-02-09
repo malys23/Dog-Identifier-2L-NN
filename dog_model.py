@@ -1,14 +1,6 @@
 import numpy as np
-import h5py
 import matplotlib.pyplot as plt
-from nn_functions import sigmoid, sigmoid_backward, relu, relu_backward
-
-from initialize_parameters import initialize_parameters
-from initialize_parameters_deep import initialize_parameters_deep
-from forward_propagation import linear_forward, linear_activation_forward, L_model_forward
-from compute_cost import compute_cost
-from backward_propagation import linear_backward, linear_activation_backward, L_model_backward
-from update_parameters import update_parameters
+from two_layer_model import two_layer_model
 
 train_set_x_orig = np.load('train_dogvnondog/train_set_x.npy')
 train_set_y = np.load('train_dogvnondog/train_set_y.npy')
@@ -30,4 +22,14 @@ test_set_x_flatten = test_set_x_orig.reshape(test_set_x_orig.shape[0], -1).T
 #3: Standardize dataset (divide by 255, max val of pixel channel)
 train_set_x = train_set_x_flatten / 255
 test_set_x = test_set_x_flatten / 255
+
+#4: Run Two Layer Model
+n_x = 12288
+n_h = 7
+n_y = 1
+layers_dims=(n_x, n_h, n_y)
+learning_rate=0.0075
+num_iterations=2
+parameters, costs = two_layer_model(train_set_x, train_set_y, layers_dims=(n_x, n_h, n_y), learning_rate=0.0075, num_iterations=2, print_cost=False)
+print("Cost after first iteration: " + str(costs[0]))
 

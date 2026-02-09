@@ -1,9 +1,7 @@
-#Update the parameters with gradient descent for every layer
-#using W = W + alpha*dW and b = b + alpha*db
-
-import numpy as np
 import copy
 
+#Update the parameters with gradient descent for every layer
+#using W = W + alpha*dW and b = b + alpha*db
 def update_parameters(params, grads, learning_rate):
     parameters = copy.deepcopy(params)
     L = len(parameters) // 2
